@@ -1,10 +1,10 @@
 # KeyPosS: Plug-and-Play Facial Landmark Detection through GPS-Inspired True-Range Multilateration
 
-**KeyPosS** is a groundbreaking facial landmark detection system inspired by GPS technology, specifically the True-Range Multilateration algorithm. This novel approach addresses the challenges faced by traditional heatmap or coordinate regression-based techniques, offering a more efficient and accurate solution. For a more comprehensive understanding and additional details, please refer to the [paper](https://arxiv.org/abs/2305.16437).
+**KeyPosS** is a groundbreaking facial landmark detection system inspired by GPS technology, specifically the True-Range Multilateration algorithm. This novel approach addresses the challenges faced by traditional heatmap or coordinate regression-based techniques, offering a more efficient and accurate solution. For a more comprehensive understanding and additional details, please refer to the our [ACM MM 2023 paper](https://arxiv.org/abs/2305.16437).
 
 
 <div align="center">
-  <img src='assets/figure2.jpg' width='900'/>
+  <img src='https://github.com/zhiqic/KeyPosS/assets/65300431/33f4aab7-d809-443e-a150-56e518246b2c' width='900'/>
   <br>
   <i>Figure 1: A comparison of four decoding methods. Despite the inherent "Error" in encoding-decoding, KeyPosS excels with minimal overhead.</i>
 </div>
@@ -14,7 +14,7 @@ Facial landmark detection plays a pivotal role in various applications, from fac
 
 
 <div align="center">
-  <img src='assets/figure4.jpg' width='900'/>
+  <img src='https://github.com/zhiqic/KeyPosS/assets/65300431/145ed88a-428c-446b-955c-c386c40a489c' width='900'/>
   <br>
   <i>Figure 2: The KeyPosS pipeline, encompassing the Distance Encoding Model, Station Anchor Sampling Strategy, and True-range Multilateration. A versatile scheme suitable for any distance encoding-based approach.</i>
 </div>
@@ -23,7 +23,7 @@ Facial landmark detection plays a pivotal role in various applications, from fac
 ## Performance Overview
 
 <div align="center">
-  <img src='assets/performance.jpg' width='900'/>
+  <img src='https://github.com/zhiqic/KeyPosS/assets/65300431/b70c97fd-8ddd-4ec5-8220-8691f2cb2544' width='900'/>
   <br>
   <i>Table 1: A performance comparison with State-of-the-Art methods. Results are presented in NME (%), with top results in bold.</i>
 </div>
