@@ -1,58 +1,97 @@
-# KeyPosS
+# KeyPosS: Plug-and-Play Facial Landmark Detection through GPS-Inspired True-Range Multilateration **[[Paper](https://arxiv.org/abs/2305.16437)]** <br />
 
-## KeyPosS: Plug-and-Play Facial Landmark Detection through GPS-Inspired True-Range Multilateration **[[Paper](https://arxiv.org/abs/2305.16437)]** <br />
-<p align='left'>
-  <img src='assets/pipeline.png' width='900'/>
-</p>
+**KeyPosS** is a groundbreaking facial landmark detection system inspired by GPS technology, specifically the True-Range Multilateration algorithm. This novel approach addresses the challenges faced by traditional heatmap or coordinate regression-based techniques, offering a more efficient and accurate solution.
 
 
+<div align="center">
+  <img src='assets/figure2.jpg' width='900'/>
+  <br>
+  <i>Figure 1: A comparison of four decoding methods. Despite the inherent "Error" in encoding-decoding, KeyPosS excels with minimal overhead.</i>
+</div>
 
-## Performance
-<p align='left'>
+
+Facial landmark detection plays a pivotal role in various applications, from face recognition to animation. Traditional methods, however, often face challenges in terms of computational burden and quantization errors. **KeyPosS** stands out by using a fully convolutional network to predict a distance map, which calculates the distance between a Point of Interest (POI) and multiple anchor points. These anchor points are then used to triangulate the POI's position, providing a unique and efficient approach to facial landmark detection.
+
+
+<div align="center">
+  <img src='assets/figure4.jpg' width='900'/>
+  <br>
+  <i>Figure 2: The KeyPosS pipeline, encompassing the Distance Encoding Model, Station Anchor Sampling Strategy, and True-range Multilateration. A versatile scheme suitable for any distance encoding-based approach.</i>
+</div>
+
+
+## Performance Overview
+
+<div align="center">
   <img src='assets/performance.jpg' width='900'/>
-</p>
+  <br>
+  <i>Table 1: A performance comparison with State-of-the-Art methods. Results are presented in NME (%), with top results in bold.</i>
+</div>
 
 
-## Quick Start
 
-### Installation
-You can refer to [mmpose](https://github.com/open-mmlab/mmpose) to install the necessary environments.
 
-Our experiment is trained and tested on COCO, WFLW, 300W, COFW, and AFLW datasets, with train and test scripts detailed below.
+## Quick Start Guide
 
-### Training
-We use ImageNet models provided by [mmpose](https://github.com/open-mmlab/mmpose) as our pre-trained models.
+Get started with the KeyPosS facial landmark detection system in a few simple steps:
 
-```shell
-CUDA_VISIBLE_DEVICES=0,1,2,3 sh tools/dist_train.sh \
-    configs/face/2d_kpt_sview_rgb_img/topdown_heatmap/coco_wholebody_face/hrnetv2_w18_coco_wholebody_face_256x256_dark.py \
-    4 \
-    --work-dir exp/exp889
-```
+### 1. Installation:
 
-### Evaluation
-The pre-trained models and trained models on each dataset and heatmap resolution are available on [Google Drive](https://drive.google.com/drive/folders/1gIH6GCVdSH7K0O1_Ohy9sJCRNdsQjnwY)
+- **Environment Setup**: Begin by setting up the necessary environment. For this, refer to the instructions provided by [mmpose](https://github.com/open-mmlab/mmpose).
+  
+- **Datasets**: Our experiments utilize the COCO, WFLW, 300W, COFW, and AFLW datasets.
 
-1. Copy the model file "exp" to the code root directory
+### 2. Training:
 
-2. Run the test script: run_test_64.sh, run_test_32.sh, run_test_16.sh, run_test_8.sh, or run_test_4.sh, testing the performance of the model on all face datasets (WFLW/COCO/300W/AFLW/COFW) at different resolutions.
+- **Pre-trained Models**: We leverage ImageNet models from [mmpose](https://github.com/open-mmlab/mmpose) as our starting point.
 
-3. Please note that you need to manually modify the resolution in the "data_cfg/heatmap_size" field in the configuration file before running the test script. The model in "exp" supports five resolutions: 64, 32, 16, 8, 4.
+- **Training Command**: To start the training process, execute the following command:
 
-For details, please refer to the test scripts: run_test_64.sh, run_test_32.sh, run_test_16.sh, run_test_8.sh, and run_test_4.sh.
+  ```shell
+  CUDA_VISIBLE_DEVICES=0,1,2,3 sh tools/dist_train.sh \
+      configs/face/2d_kpt_sview_rgb_img/topdown_heatmap/coco_wholebody_face/hrnetv2_w18_coco_wholebody_face_256x256_dark.py \
+      4 \
+      --work-dir exp/exp889
+  ```
 
-```shell
-CUDA_VISIBLE_DEVICES=0,1,2,3 sh tools/dist_test.sh \
-    configs/face/2d_kpt_sview_rgb_img/topdown_heatmap/wflw/hrnetv2_w18_wflw_256x256_dark.py \
-    exp/exp_v1.3.0/best_NME_epoch_60.pth \
-    4 
-```
+### 3. Evaluation:
+
+#### Step 1: Obtain the Models
+- **Download**: Retrieve the pre-trained and trained models for each dataset and heatmap resolution from [Google Drive](https://drive.google.com/drive/folders/1gIH6GCVdSH7K0O1_Ohy9sJCRNdsQjnwY).
+
+#### Step 2: Model Setup
+- **Placement**: After downloading, move the "exp" model file to the root directory of your codebase.
+
+#### Step 3: Resolution Configuration
+- **Supported Resolutions**: The model in the "exp" directory is compatible with five resolutions: 64, 32, 16, 8, and 4.
+  
+- **Configuration**: Prior to running the test script, adjust the resolution by editing the "data_cfg/heatmap_size" field in the configuration file to your chosen resolution.
+
+#### Step 4: Test Execution
+- **Script Selection**: Based on your chosen resolution, run the appropriate test script:
+  - `run_test_64.sh`
+  - `run_test_32.sh`
+  - `run_test_16.sh`
+  - `run_test_8.sh`
+  - `run_test_4.sh`
+  
+  These scripts evaluate the model's efficacy across various face datasets: WFLW, COCO, 300W, AFLW, and COFW.
+
+#### Step 5: Evaluation Command
+- **Command Execution**: To kick off the evaluation, input the following command:
+
+  ```shell
+  CUDA_VISIBLE_DEVICES=0,1,2,3 sh tools/dist_test.sh \
+      configs/face/2d_kpt_sview_rgb_img/topdown_heatmap/wflw/hrnetv2_w18_wflw_256x256_dark.py \
+      exp/exp_v1.3.0/best_NME_epoch_60.pth \
+      4 
+  ```
 
 ## Acknowledgment
-Our implementation is primarily based on [mmpose](https://github.com/open-mmlab/mmpose). We gratefully thank the authors for their incredible work.
+Our work is primarily based on [mmpose](https://github.com/open-mmlab/mmpose). We express our gratitude to the authors for their invaluable contributions.
 
 ## Citation
-If this repository helps your research, please cite the following paper:
+If you find this work beneficial, kindly cite our paper:
 ```bibtex
 @misc{bao2023keyposs,
       title={KeyPosS: Plug-and-Play Facial Landmark Detection through GPS-Inspired True-Range Multilateration}, 
@@ -62,5 +101,6 @@ If this repository helps your research, please cite the following paper:
       primaryClass={cs.CV}
 }
 ```
+
 ## License
-This repo is released under the Apache 2.0 license. Please see the LICENSE file for more information.
+This repository is licensed under the Apache 2.0 license. For more details, please refer to the LICENSE file.
