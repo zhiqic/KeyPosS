@@ -1,6 +1,6 @@
-# KeyPosS: Plug-and-Play Facial Landmark Detection through GPS-Inspired True-Range Multilateration **[[Paper](https://arxiv.org/abs/2305.16437)]** <br />
+# KeyPosS: Plug-and-Play Facial Landmark Detection through GPS-Inspired True-Range Multilateration
 
-**KeyPosS** is a groundbreaking facial landmark detection system inspired by GPS technology, specifically the True-Range Multilateration algorithm. This novel approach addresses the challenges faced by traditional heatmap or coordinate regression-based techniques, offering a more efficient and accurate solution.
+**KeyPosS** is a groundbreaking facial landmark detection system inspired by GPS technology, specifically the True-Range Multilateration algorithm. This novel approach addresses the challenges faced by traditional heatmap or coordinate regression-based techniques, offering a more efficient and accurate solution. For a more comprehensive understanding and additional details, please refer to the [paper](https://arxiv.org/abs/2305.16437).
 
 
 <div align="center">
