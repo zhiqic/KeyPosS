@@ -2,18 +2,18 @@
 
 KeyPosS is a facial landmark detection method inspired by GPS technology. It addresses the limitations of traditional heatmap and coordinate regression techniques with an efficient and accurate approach.
 
+KeyPosS uses a fully convolutional network to predict distance maps between points of interest (POIs) on a face and multiple anchor points. The anchor points are then leveraged to precisely triangulate the POIs' positions using true-range multilateration.
+
 <div align="center">
   <img src='https://github.com/zhiqic/KeyPosS/assets/65300431/33f4aab7-d809-443e-a150-56e518246b2c' width='900'/>
   <br>
   <i>Figure 1: A comparison of four decoding methods. Our KeyPosS excels with minimal overhead.</i>
 </div>
 
-KeyPosS uses a fully convolutional network to predict distance maps between points of interest (POIs) on a face and multiple anchor points. The anchor points are then leveraged to precisely triangulate the POIs' positions using true-range multilateration.
-
 <div align="center">
   <img src='https://github.com/zhiqic/KeyPosS/assets/65300431/145ed88a-428c-446b-955c-c386c40a489c' width='900'/>
   <br>
-  <i>Figure 2: The KeyPosS pipeline, encompassing the Distance Encoding Model, Station Anchor Sampling Strategy, and True-range Multilateration. A versatile scheme suitable for any distance encoding-based approach.</i>
+  <i>Figure 2: The KeyPosS pipeline, encompassing the Distance Encoding Model, Station Anchor Sampling Strategy, and True-range Multilateration. It is suitable for any distance encoding-based approach.</i>
 </div>
 
 ## Key Features
