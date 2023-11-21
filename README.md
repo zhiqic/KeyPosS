@@ -1,23 +1,32 @@
-# KeyPosS: Plug-and-Play Facial Landmark Detection through GPS-Inspired True-Range Multilateration
+# KeyPosS: Facial Landmark Detection through GPS-Inspired True-Range Multilateration 
 
-**KeyPosS** is a groundbreaking facial landmark detection system inspired by GPS technology, specifically the True-Range Multilateration algorithm. This novel approach addresses the challenges faced by traditional heatmap or coordinate regression-based techniques, offering a more efficient and accurate solution. For a more comprehensive understanding and additional details, please refer to our [ACM MM 2023 paper](https://arxiv.org/abs/2305.16437).
-
+KeyPosS is a novel facial landmark detection method inspired by GPS technology. It addresses limitations of traditional heatmap and coordinate regression techniques with an efficient and accurate approach.
 
 <div align="center">
   <img src='https://github.com/zhiqic/KeyPosS/assets/65300431/33f4aab7-d809-443e-a150-56e518246b2c' width='900'/>
   <br>
-  <i>Figure 1: A comparison of four decoding methods. Despite the inherent "Error" in encoding-decoding, KeyPosS excels with minimal overhead.</i>
+  <i>Figure 1: A comparison of four decoding methods. Our KeyPosS excels with minimal overhead.</i>
 </div>
 
-
-Facial landmark detection plays a pivotal role in various applications, from face recognition to animation. Traditional methods, however, often face challenges in terms of computational burden and quantization errors. **KeyPosS** stands out by using a fully convolutional network to predict a distance map, which calculates the distance between a Point of Interest (POI) and multiple anchor points. These anchor points are then used to triangulate the POI's position, providing a unique and efficient approach to facial landmark detection.
-
+KeyPosS uses a fully convolutional network to predict distance maps between points of interest (POIs) on a face and multiple anchor points. The anchor points are then leveraged to precisely triangulate the POIs' positions using true-range multilateration.
 
 <div align="center">
   <img src='https://github.com/zhiqic/KeyPosS/assets/65300431/145ed88a-428c-446b-955c-c386c40a489c' width='900'/>
   <br>
   <i>Figure 2: The KeyPosS pipeline, encompassing the Distance Encoding Model, Station Anchor Sampling Strategy, and True-range Multilateration. A versatile scheme suitable for any distance encoding-based approach.</i>
 </div>
+
+## Key Features
+
+- **GPS-inspired:** Applies proven concepts from GPS technology to facial analysis, enabling more precise localization.
+
+- **True-Range Multilateration:** Decodes predicted distances into landmark coordinates through multilateration with anchoring points.
+
+- **Versatile:** Can be built upon any distance encoding-based model for enhanced performance.
+
+- **Efficient:** Avoids computational burdens of heatmap-based methods.
+
+For more details, please see our [ACM MM 2023 paper](https://arxiv.org/abs/2305.16437).
 
 
 ## Performance Overview
@@ -93,12 +102,12 @@ Our work is primarily based on [mmpose](https://github.com/open-mmlab/mmpose). W
 ## Citation
 If you find this work beneficial, kindly cite our paper:
 ```bibtex
-@misc{bao2023keyposs,
-      title={KeyPosS: Plug-and-Play Facial Landmark Detection through GPS-Inspired True-Range Multilateration}, 
-      author={Xu Bao and Zhi-Qi Cheng and Jun-Yan He and Chenyang Li and Wangmeng Xiang and Jingdong Sun and Hanbing Liu and Wei Liu and Bin Luo and Yifeng Geng and Xuansong Xie},
-      year={2023},
-      eprint={2305.16437},
-      primaryClass={cs.CV}
+@inproceedings{bao2023keyposs,
+  title={KeyPosS: Plug-and-Play Facial Landmark Detection through GPS-Inspired True-Range Multilateration},
+  author={Bao, Xu and Cheng, Zhi-Qi and He, Jun-Yan and Xiang, Wangmeng and Li, Chenyang and Sun, Jingdong and Liu, Hanbing and Liu, Wei and Luo, Bin and Geng, Yifeng and others},
+  booktitle={Proceedings of the 31st ACM International Conference on Multimedia},
+  pages={5746--5755},
+  year={2023}
 }
 ```
 
