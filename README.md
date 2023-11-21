@@ -1,6 +1,6 @@
 # KeyPosS: Facial Landmark Detection through GPS-Inspired True-Range Multilateration 
 
-KeyPosS is a novel facial landmark detection method inspired by GPS technology. It addresses limitations of traditional heatmap and coordinate regression techniques with an efficient and accurate approach.
+KeyPosS is a facial landmark detection method inspired by GPS technology. It addresses the limitations of traditional heatmap and coordinate regression techniques with an efficient and accurate approach.
 
 <div align="center">
   <img src='https://github.com/zhiqic/KeyPosS/assets/65300431/33f4aab7-d809-443e-a150-56e518246b2c' width='900'/>
